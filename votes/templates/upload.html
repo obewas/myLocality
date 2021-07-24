@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load cloudinary %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+  <div id='backend_upload'>
+    <form action="{% url 'upload' %}" method="post"enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ backend_form }}
+      <input type="submit" value="Upload">
+    </form>
+  </div>  
+{% endblock %}
+
+

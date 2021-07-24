@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Posted By</th>
+				<th>Created on</th>
+				<th>Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{project.title}}</td>
+				<td>{{project.description}}</td>
+				<td>{{project.posted_by}}</td>
+				<td>{{project.created}}</td>
+				
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+
+
+
+{% endblock %}
+
+
