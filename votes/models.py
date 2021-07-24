@@ -11,14 +11,14 @@ class Photo(models.Model):
     def __str__(self):
         return self.name
 
-
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	full_name = models.CharField(max_length=100, default='')
+	estate = models.CharField(max_length=100, default='')
 	city = models.CharField(max_length=100, default='')
 	contact = models.CharField(default='', max_length=200)
 	phoneNumber = models.IntegerField(default=0)
-	image = models.ImageField(upload_to='profile_image' , blank=True)
+	image = models.ForeignKey(Photo, on_delete=models.CASCADE,null=True, blank=True)
 	profession = models.CharField(max_length=200)
 
 	def __str__(self):
@@ -26,22 +26,27 @@ class Profile(models.Model):
 		return f'{self.user.username} Profile'
 
 
-	def createProfile(sender, **kwargs):
-		if kwargs['created']:
-			user_profile = Profile.objects.created(user=kwargs['instance'])
-			post_save.connect(createProfile, sender=User)
+class Neighbourhood(models.Model):
+ 	name = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
+ 	occupants_count = models.IntegerField(null=True)
+ 	
+
+ 	def __str__(self):
+ 		return str(self.name)
 
 
-class Project(models.Model):
-	title = models.CharField(max_length=200, null=True)
-	description = models.TextField()
-	posted_by = models.CharField(max_length=200, null=True)
-	image = models.ImageField(upload_to='images', null=True)
-	created = models.DateTimeField(auto_now_add=True, null=True)
-
+class Business(models.Model):
+	name = models.CharField(max_length=200, null=True)
+	user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+	neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, null=True)
+	email = models.CharField(max_length=200)
+	industry = models.CharField(max_length=200, null=True)
 
 	def __str__(self):
-		return self.title
+		return self.name
+
+
+
 
 
 

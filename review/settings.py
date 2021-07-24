@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'votes',
+    'users',
+    'posts',
     'bootstrap4',
     'rest_framework',
     'cloudinary',
@@ -131,7 +133,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+cloudinary.config(
+    cloud_name = 'hs8k1napd',
+    api_key = '711616426271462',
+    api_secret = 'jSwVe26AvQnapdwGEBcFABvfxYA',
+)
 
 
 

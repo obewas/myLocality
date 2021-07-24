@@ -1,23 +1,22 @@
 from django.shortcuts import render, redirect
-from .forms import ProjectForm
-from .models import Project
 from django.contrib import messages
-from django.shortcuts import render, redirect
 from datetime import datetime
-from .forms import EditProfileForm, UpdateProfileForm, UserRegisterForm, PhotoForm
+from .forms import EditProfileForm, UpdateProfileForm, UserRegisterForm, PhotoForm, NeighbourhoodForm, BusinessForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-def create_project(request):
+
+####################### Neighbourhood Views#########################################
+def create_neighbourhood(request):
 	
 	if request.method == 'POST':
-		form = ProjectForm()
+		form = NeighbourhoodForm(request.POST or None)
 		if form.is_valid():
 			form.save()
 	else:
-		form = ProjectForm()
+		form = NeighbourhoodForm()
 
-	return render(request, 'createproject.html', {'form':form})
+	return render(request, 'create_neighbourhood.html', {'form':form})
 
 def project_list(request):
 	projects = Project.objects.all()

@@ -1,14 +1,14 @@
 from django import forms
-from .models import Project, Profile, Photo
+from .models import Profile, Photo, Neighbourhood, Business
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 #form creation
 
-class ProjectForm(forms.ModelForm):
+class NeighbourhoodForm(forms.ModelForm):
 
 	class Meta:
-		model = Project
+		model = Neighbourhood
 		fields = '__all__'
 
 class EditProfileForm(forms.ModelForm):
@@ -34,4 +34,11 @@ class PhotoForm(forms.ModelForm):
   class Meta:
       model = Photo
       fields = ['name', 'image']
+
+
+class BusinessForm(forms.ModelForm):
+
+	class Meta:
+		model = Business
+		fields = '__all__'
 
