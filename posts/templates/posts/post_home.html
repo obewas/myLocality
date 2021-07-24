@@ -6,7 +6,7 @@
 
 {% for post in posts %}
 <article class="mdeia content-section">
-	<img src="{{ post.author.profile.image.url}}" class="rounded-circle article-img" width="18rem">
+	<img src="{{ post.author.profile.image.url}}" class="rounded-circle article-img">
 	<div class="mdeia-body">
 		<div class="article-metadata">
 			<a class="mr-2" href="">{{ post.author }}</a>
@@ -21,7 +21,7 @@
 		
 	
 	
-</article>  
+</article> 
 
 {% endfor %}
 
