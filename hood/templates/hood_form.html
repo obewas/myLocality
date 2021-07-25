@@ -4,19 +4,16 @@
 {% load static %}
 {% block content %}
 
-<div>
-	<a href="{% url 'upload' %}" type="button">Upload Your Photo</a>
-</div>
 
-<form method="post" action="">
+
+<form method="post" action="" enctype="multipart/form-data">
 
 	{% csrf_token %}
 	{% bootstrap_form form %}
-	<input type="submit" name="submit" value="Edit">
+	<input type="submit" name="submit" value="Create">
 	
 </form>
 
 {% endblock %}
-
 
 

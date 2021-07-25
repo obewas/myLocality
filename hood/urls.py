@@ -6,9 +6,11 @@ from . import views
 
 urlpatterns = [
 
-path('create_neighbourhood', views.NeighbourhoodCreateView.as_view(), name='create_neighbourhood'),
-path('list_neighbourhood', views.NeighbourhoodListView.as_view(), name='list_neighbourhood'),
-path('detail_neighbourhood/<int:pk>/', views.NeighbourhoodDetailView.as_view(), name='detail_neighbourhood'),
+path('create_hood', views.NeighbourhoodCreateView.as_view(), name='hood-create'),
+path('list_hood', views.NeighbourhoodListView.as_view(), name='hood-list'),
+path('hood/<int:pk>/', views.NeighbourhoodDetailView.as_view(), name='hood-detail'),
+path('hood/<int:pk>/update', views.NeighbourhoodUpdateView.as_view(), name='hood-update'),
+path('hood/<int:pk>/delete/', views.NeighbourhoodDeleteView.as_view(), name='hood-delete'),
 
 
 ]
