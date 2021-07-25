@@ -14,6 +14,7 @@ path('hood/<int:pk>/delete/', views.NeighbourhoodDeleteView.as_view(), name='hoo
 
 path('create_business', views.BusinessCreateView.as_view(), name='business-create'),
 path('list_business', views.BusinessListView.as_view(), name='business-list'),
+path('business/<int:pk>/', views.BusinessDetailView.as_view(), name='business-detail'),
 
 
 

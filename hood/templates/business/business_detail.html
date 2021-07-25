@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+{{object.user}}
+
+<article class="mdeia content-section">
+	<img src="{{ object.author.profile.image.url}}" class="rounded-circle article-img">
+		<div class="mdeia-body">
+			<div class="article-metadata">
+				<a class="mr-2" href="">{{ object.user }}</a>
+				<a class="mr-2" href="">{{ object.neighbourhood }}</a>
+				<a class="mr-2" href="">{{ object.email }}</a>
+				<a class="mr-2" href="">{{ object.industry }}</a>
+				
+	
+				{% if object.name == user %}
+				<!-- <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'hood-update' object.id %}">Update</a>
+				<a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'hood-delete' object.id %}">Delete</a> -->
+
+				{% endif %}
+			 </div>
+			
+				<h2>{{ object.title }}</h2>
+				<p class="article-content">{{object.content}}</p>
+			
+		
+		</div>
+		
+	
+	
+</article>
+
+{% endblock %}
+
+

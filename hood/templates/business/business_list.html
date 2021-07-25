@@ -21,11 +21,11 @@
 			{% for business in businesses %}
 			<tr>
 				<td>{{business.name}}</td>
-				<td>{{business.location}}</td>
+				<td>{{business.neighbourhood.estate}}</td>
 				<td>{{business.email}}</td>
 				<td>{{business.industry}}</td>
 				<td>{{business.user}}</td>
-				<!-- <td><a href="{% url 'business-detail' hood.id %}">Details</a></t -->d>
+				<td><a href="{% url 'business-detail' business.id %}">Details</a></td>
 				
 			</tr>
 			{% endfor %}

@@ -75,22 +75,22 @@ class BusinessListView(ListView):
 	
 
 
-# class NeighbourhoodDetailView(DetailView):
-# 	model = Neighbourhood
-# 	template_name = 'hood_detail.html'
+class BusinessDetailView(DetailView):
+	model = Business
+	template_name = 'business/business_detail.html'
 
 
 
-# class NeighbourhoodUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-# 	model = Neighbourhood
-# 	fields = '__all__'
-# 	template_name = 'hood_form.html'
+class BusinessUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+	model = Business
+	fields = '__all__'
+	template_name = 'business/business_update.html'
 	
-# 	def test_func(self):
-# 		obj = self.get_object()
-# 		if obj.admin == self.request.user:
-# 			return True
-# 		return False
+	def test_func(self):
+		obj = self.get_object()
+		if obj.user== self.request.user:
+			return True
+		return False
 
 # class NeighbourhoodDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 #  	model = Neighbourhood
