@@ -22,6 +22,8 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'post-create' %}">New Post</a></li>
+                <li><a href="{% url 'list_neighbourhood' %}">Neighbourhood</a></li>
+                <li><a href="{% url 'post-home' %}">Posts</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hello {{ user | title }} !!</a></li>

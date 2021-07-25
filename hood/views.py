@@ -32,6 +32,44 @@ class NeighbourhoodCreateView(LoginRequiredMixin, CreateView):
 		return super().form_valid(form)
 
 
+class NeighbourhoodListView(ListView):
+	model = Neighbourhood
+	template_name = 'neighbourhood_list.html'
+	context_object_name = 'hoods'
+	
+
+
+# class NeighbourhoodDetailView(DetailView):
+# 	model = Neighbourhood
+# 	template_name = 'hood_detail.html'
+
+
+
+# class NeighbourhoodUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+# 	model = Neighbourhood
+# 	fields = '__all__'
+# 	template_name = 'hood_form.html'
+	
+
+# 	def form_valid(self, form):
+# 		form.instance.name = self.request.user
+# 		return super().form_valid(form)	 
+
+# 	def test_func(self):
+# 		hood = self.get_object()
+# 		if self.request.user == hood.name:
+# 			return True
+# 		return False
+
+# class NeighbourhoodDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+#  	model = Neighbourhood
+#  	success_url = 'post-home'
+
+#  	def test_func(self):
+#  		hood = self.get_object()
+#  		if self.request.user == hood.name:
+#  			return True
+#  		return False
 
 
 

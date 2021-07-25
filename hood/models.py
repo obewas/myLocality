@@ -15,7 +15,7 @@ class Photo(models.Model):
 
 class Neighbourhood(models.Model):
     name = models.CharField(max_length=200, null=True)
-    location = models.CharField(max_length=200, null=True)
+    estate = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     occupants_count = models.IntegerField(null=True)
     admin = models.ForeignKey(Profile, on_delete=models.CASCADE)

@@ -8,23 +8,27 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Title</th>
-				<th>Description</th>
-				<th>Posted By</th>
-				<th>Created on</th>
+				<th>Name</th>
+				<th>Estate</th>
+				<th>city</th>
+				<th>Occupants</th>
+				<th>Created By</th>
 				<th>Action</th>
 
 			</tr>
 		</thead>
 		<tbody>
+			{% for hood in hoods %}
 			<tr>
-				<td>{{project.title}}</td>
-				<td>{{project.description}}</td>
-				<td>{{project.posted_by}}</td>
-				<td>{{project.created}}</td>
+				<td>{{hood.name}}</td>
+				<td>{{hood.estate}}</td>
+				<td>{{hood.city}}</td>
+				<td>{{hood.occupants_count}}</td>
+				<td>{{hood.admin}}</td>
+				<td>Details</td>
 				
 			</tr>
-			
+			{% endfor %}
 		</tbody>
 	</table>
 </div>
