@@ -14,15 +14,15 @@ class Photo(models.Model):
 
 
 class Neighbourhood(models.Model):
- 	name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True)
     location = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
- 	occupants_count = models.IntegerField(null=True)
+    occupants_count = models.IntegerField(null=True)
     admin = models.ForeignKey(Profile, on_delete=models.CASCADE)
  	
 
- 	def __str__(self):
- 		return str(self.name)
+    def __str__(self):
+        return str(self.name)
 
 
 class Business(models.Model):
