@@ -25,7 +25,7 @@
 				<td>{{hood.city}}</td>
 				<td>{{hood.occupants_count}}</td>
 				<td>{{hood.admin}}</td>
-				<td>Details</td>
+				<td><a href="{% url 'detail_neighbourhood' hood.id %}">Details</a></td>
 				
 			</tr>
 			{% endfor %}

@@ -39,9 +39,9 @@ class NeighbourhoodListView(ListView):
 	
 
 
-# class NeighbourhoodDetailView(DetailView):
-# 	model = Neighbourhood
-# 	template_name = 'hood_detail.html'
+class NeighbourhoodDetailView(DetailView):
+	model = Neighbourhood
+	template_name = 'hood_detail.html'
 
 
 
