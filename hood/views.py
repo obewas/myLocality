@@ -22,9 +22,10 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 class NeighbourhoodCreateView(LoginRequiredMixin, CreateView):
 	
-	model = Post
-	template_name = 'create.html'
+	model = Neighbourhood
+	template_name = 'create_neighbourhood.html'
 	fields = '__all__' 
+	success_url = '/post-home/'
 
 	def form_valid(self, form):
 		form.instance.name = self.request.user
