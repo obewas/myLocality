@@ -92,15 +92,16 @@ class BusinessUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 			return True
 		return False
 
-# class NeighbourhoodDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-#  	model = Neighbourhood
-#  	success_url = 'post-home'
+class BusinessDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+ 	model = Neighbourhood
+ 	success_url = 'post-home'
 
-#  	def test_func(self):
-#  		hood = self.get_object()
-#  		if self.request.user == hood.admin:
-#  			return True
-#  		return False
+ 	def test_func(self):
+ 		obj = self.get_object()
+ 		if obj.user== self.request.user:
+ 			return True
+ 		return False
+
 
 # create_business()
 # delete_business()
