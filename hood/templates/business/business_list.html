@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Email</th>
+				<th>Industry</th>
+				<th>Created By</th>
+				<th>Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for business in businesses %}
+			<tr>
+				<td>{{business.name}}</td>
+				<td>{{business.location}}</td>
+				<td>{{business.email}}</td>
+				<td>{{business.industry}}</td>
+				<td>{{business.user}}</td>
+				<!-- <td><a href="{% url 'business-detail' hood.id %}">Details</a></t -->d>
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+
+
+{% endblock %}
+
