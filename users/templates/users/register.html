@@ -3,7 +3,28 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="content-section">
+<style>
+	fieldset {
+    font-family: sans-serif;
+    border: 5px solid #1F497D;
+    background: #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+fieldset legend {
+    background: #1F497D;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #ddd;
+    margin-left: 20px;
+}
+</style>
+
+
+<div class="content-section" style="width:75%; padding-left: 15%;">
 	<form method="POST">
 		{% csrf_token %}
 
@@ -12,7 +33,7 @@
 			{{ form | crispy }}
 		</fieldset>
 		<div class="form-group">
-			<button class="btn btn-outline-info" type="submit">Sign Up</button>	
+			<button class="btn btn-primary" type="submit">Sign Up</button>	
 		</div>
 	</form>
 

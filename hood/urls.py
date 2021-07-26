@@ -17,6 +17,7 @@ path('list_business', views.BusinessListView.as_view(), name='business-list'),
 path('business/<int:pk>/', views.BusinessDetailView.as_view(), name='business-detail'),
 path('business/<int:pk>/update', views.BusinessUpdateView.as_view(), name='business-update'),
 path('business/<int:pk>/delete/', views.BusinessDeleteView.as_view(), name='business-delete'),
+path('search/', views.search_business, name='search'),
 
 
 

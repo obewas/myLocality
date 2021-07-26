@@ -98,15 +98,21 @@ class BusinessDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
  	def test_func(self):
  		obj = self.get_object()
- 		if obj.user== self.request.user:
+ 		if obj.user == self.request.user:
  			return True
  		return False
 
+def search_business(request):
+    """ search function  """
+    if request.method == "POST":
+        query_name = request.POST.get('name', None)
+        if query_name:
+            results = Business.objects.filter(name__contains=query_name)
+            return render(request, 'business/business_search.html', {"results":results})
 
-# create_business()
-# delete_business()
-# find_business(business_id)
-# update_business()
+    return render(request, 'business/business_search.html')
+
+
 
 
 
