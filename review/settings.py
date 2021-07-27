@@ -142,11 +142,11 @@ cloudinary.config(
 
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET'),
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+#     'API_KEY': config('CLOUDINARY_API_KEY'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET'),
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -178,7 +178,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 LOGIN_REDIRECT_URL = 'profile'
