@@ -13,7 +13,7 @@ class NeighbourhoodCreateView(LoginRequiredMixin, CreateView):
 	model = Neighbourhood
 	template_name = 'create_neighbourhood.html'
 	fields = ['name','estate','city','occupants_count'] 
-	success_url = 'hood-list'
+	success_url = '/'
 
 	def form_valid(self, form):
 		form.instance.name = self.request.user

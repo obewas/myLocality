@@ -25,12 +25,17 @@ class Neighbourhood(models.Model):
         return str(self.name)
 
 
+ind = (
+
+    ('1','Retail'),('2','Hospitality'),('3','Hardware'),('4','Health'),('5','Technology')
+    )
+
 class Business(models.Model):
-	name = models.CharField(max_length=150, null=True)
+	Business_name = models.CharField(max_length=150, null=True)
 	user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
 	neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, null=True)
 	email = models.EmailField()
-	industry = models.CharField(max_length=200, null=True)
+	industry = models.CharField(max_length=200, null=True, choices=ind)
 
 	def __str__(self):
 		return self.name
