@@ -31,7 +31,13 @@
                     </ul>
                 </li>
                 <li><a href="{% url 'post-create' %}">New Post</a></li>
-                <li><a href="{% url 'hood-list' %}">Neighbourhood</a></li>
+                <li><a href="#">Neighbourhood</a>
+                    <ul class="dropdown">
+                        <li><a href="{% url 'hood-list' %}">Hood List</a></li>
+                        <li><a href="{% url 'hood-create'%}">Add Hood</a></li>
+                        <li><a href="#">Sub-3</a></li>
+                    </ul>
+                </li>
                 <li><a href="{% url 'post-home' %}">Posts</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

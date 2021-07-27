@@ -18,7 +18,7 @@ class Neighbourhood(models.Model):
     estate = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     occupants_count = models.IntegerField(null=True)
-    admin = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    admin = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
  	
 
     def __str__(self):
