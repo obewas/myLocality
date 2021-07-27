@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from cloudinary.models import CloudinaryField
 from users.models import Profile
+from django.urls import reverse
 # Create your models here.
 
 class Photo(models.Model):
@@ -31,14 +32,20 @@ ind = (
     )
 
 class Business(models.Model):
-	Business_name = models.CharField(max_length=150, null=True)
-	user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
-	neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, null=True)
-	email = models.EmailField()
-	industry = models.CharField(max_length=200, null=True, choices=ind)
+    business_name = models.CharField(max_length=150, null=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, null=True)
+    email = models.EmailField()
+    industry = models.CharField(max_length=200, null=True, choices=ind)
 
-	def __str__(self):
-		return self.name
+    def get_absolute_url(self):
+             return reverse('business-detail', kwargs={'pk':self.pk})
+
+	
+    def __str__(self):
+        return self.name
+    
+   
 
 
 

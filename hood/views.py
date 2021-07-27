@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from datetime import datetime
 from .models import Neighbourhood, Photo, Business
@@ -37,6 +37,7 @@ class NeighbourhoodUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateVie
 	model = Neighbourhood
 	fields = '__all__'
 	template_name = 'hood_form.html'
+	success_url = '/'
 	
 	def test_func(self):
 		obj = self.get_object()
@@ -91,6 +92,9 @@ class BusinessUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		if obj.user== self.request.user:
 			return True
 		return False
+
+	def get_absolute_url(self):
+		return reverse('/',  kwargs={'user_id': self.obj.id})
 
 class BusinessDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
  	model = Neighbourhood
