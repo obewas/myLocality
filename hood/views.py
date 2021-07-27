@@ -63,7 +63,7 @@ class BusinessCreateView(LoginRequiredMixin, CreateView):
 	model = Business
 	template_name = 'business/create_business.html'
 	fields = '__all__' 
-	success_url = '/post-home/'
+	success_url = '/'
 
 	def form_valid(self, form):
 		form.instance.name = self.request.user

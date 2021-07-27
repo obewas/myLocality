@@ -1,8 +1,7 @@
 from django.test import TestCase, RequestFactory
 from .models import Neighbourhood, Business
 from django.contrib.auth.models import User
-from django.test import 
-from . views import 
+
 # Create your tests here.
 class BusinessModelTestcase(TestCase):
     @classmethod

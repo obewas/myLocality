@@ -40,6 +40,7 @@ class Business(models.Model):
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, null=True)
     email = models.EmailField()
     industry = models.CharField(max_length=200, null=True, choices=ind)
+    image = models.ImageField(upload_to="business_pics", null=True)
 
     def get_absolute_url(self):
              return reverse('business-detail', kwargs={'pk':self.pk})
