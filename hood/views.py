@@ -111,7 +111,7 @@ def search_business(request):
     if request.method == "POST":
         query_name = request.POST.get('name', None)
         if query_name:
-            results = Business.objects.filter(name__contains=query_name)
+            results = Business.objects.filter(business_name__contains=query_name)
             return render(request, 'business/business_search.html', {"results":results})
 
     return render(request, 'business/business_search.html')

@@ -25,6 +25,9 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return str(self.name)
 
+    def get_absolute_url(self):
+        return reverse('hood-detail', kwargs={'pk':self.pk})
+
 
 ind = (
 
@@ -43,7 +46,7 @@ class Business(models.Model):
 
 	
     def __str__(self):
-        return self.name
+        return self.business_name
     
    
 

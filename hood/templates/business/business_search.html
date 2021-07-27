@@ -6,11 +6,41 @@
 {% block content %}
 
 
-{% for result in results %}
+<!-- {% for result in results %}
 
-    <p>{{result.name}}</p>
+    <p>{{result.business_name}}</p>
 
-{% endfor %}
+{% endfor %} -->
 
-{% endblock %}
 
+
+<div class="col-md-8 offset-md-2">
+
+
+
+           <h2>
+
+           {% with results.count as total_results %}
+
+           Found {{ total_results }} result{{ total_results|pluralize }}
+
+           {% endwith %}
+
+           </h2>
+
+   {% for result in results %}
+
+  <a href="{{result.get_url}}"><h3>{{result.business_name}}</h3></a>
+
+ 
+
+
+   {% empty %}
+
+   <h3>No results found.</h3>
+
+   {% endfor %}
+
+
+
+  {% endblock %}
