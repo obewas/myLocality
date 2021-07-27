@@ -22,7 +22,7 @@
             </div>
             <ul class="nav navbar-nav">   
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'home' %}">Profile</a></li>
                 <li><a href="#">Businesses</a>
                     <ul class="dropdown">
                         <li><a href="{% url 'business-list' %}">List</a></li>
@@ -71,7 +71,7 @@
                 <li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
-    </nav>
+    
     </nav>
     </div>
     {% endif %}

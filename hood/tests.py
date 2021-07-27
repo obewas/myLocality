@@ -1,6 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from .models import Neighbourhood, Business
 from django.contrib.auth.models import User
+from django.test import 
+from . views import 
 # Create your tests here.
 class BusinessModelTestcase(TestCase):
     @classmethod
@@ -19,24 +21,20 @@ class BusinessModelTestcase(TestCase):
         business = Business.objects.get(id=1)
         self.assertEqual(business.get_absolute_url(), "/hood/business/1/")
 
- class NeighbourhoodModelTestcase(TestCase):
- 	name = models.CharField(max_length=200, null=True)
-    estate = models.CharField(max_length=200, null=True)
-    city = models.CharField(max_length=200, null=True)
-    occupants_count = models.IntegerField(null=True)
-    admin = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-
+class NeighbourhoodModelTestcase(TestCase):
+    @classmethod
     def setUpTestData(cls):
     	admin = User.objects.first()
     	Neighbourhood.objects.create(name='Langata', estate='baraka', city='Nairobi', occupants_count=500, admin=admin)
 
 
     def test_string_method(self):
-    	neighbourhood = Neighbourhood.objects.get(id=1)
+    	neighbourhood = Neighbourhood.objects.get(name='Langata')
     	expected_string = f"{neighbourhood.name}"
     	self.assertEqual(str(neighbourhood), expected_string)
 
 
     def test_get_absolute_url(self):
-    	neighbourhood = Neighbourhood.objects.get(id=1)
-    	self.assertEqual(neighbourhood.get_absolute_url(), '/hood/business/1/')
+    	neighbourhood = Neighbourhood.objects.get(id=2)
+    	self.assertEqual(neighbourhood.get_absolute_url(), '/hood/hood/2/')
+
